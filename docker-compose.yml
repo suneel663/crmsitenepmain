@@ -12,7 +12,6 @@ services:
       - perfex_data:/var/www/html/
     labels:
       - "coolify.enable=true"
-      - "coolify.domain=crm.sitenep.com.np"  # Change this to your desired domain or subdomain
 
   mysql:
     image: mysql
