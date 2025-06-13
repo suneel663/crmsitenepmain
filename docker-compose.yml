@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   perfex:
@@ -14,13 +14,14 @@ services:
       - "coolify.enable=true"
 
   mysql:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:8.4
     restart: always
+    platform: linux/arm64/v8
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=perfex_db
+      MYSQL_ROOT_PASSWORD: yourStrongRootPassword
+      MYSQL_DATABASE: perfex
+      MYSQL_USER: perfexuser
+      MYSQL_PASSWORD: perfexpassword
     ports:
       - "3306:3306"
     volumes:
